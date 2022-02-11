@@ -49,5 +49,5 @@ async def on_message(message):
                 await message.channel.send(floor)
             else:
                 await message.channel.send("I don't know that slug yet")
-            
+
 client.run(File_object.read())
