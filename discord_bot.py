@@ -35,7 +35,7 @@ async def on_message(message):
         _list = slug.split(" ")
 
         if (len(_list)<2):
-            await message.channel.send("Include a slug ticker, you whore.\n\nTo ask for help, call '/f help'")
+            await message.channel.send("Include a slug ticker!\n\nTo ask for help, call '/f help'")
         else:
             if(_list[1] == 'help'):
                 await message.channel.send(slugs.keys())
