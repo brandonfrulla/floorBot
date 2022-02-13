@@ -16,7 +16,18 @@ slugs = { 'doodles': "doodles-official",
             'kongz': "cyberkongz",
             'meka':"mekaverse",
             'hape':"hapeprime",
-            'cworld':"creatureworld"
+            'cworld':"creatureworld",
+            'mfers': "mfers",
+            'asuna': "livesofasuna",
+            'wow': "world-of-women-nft",
+            'bakc': "bored-ape-kennel-club",
+            '888': "888innercircle",
+            'ntoo': "neotokyo-outer-identities",
+            'dfella': "deadfellaz",
+            'frenz': "alienfrensnft",
+            'veef': "veefriends",
+            'bossb': "bossbeauties",
+            'abomb': "adam-bomb-squad"
 }
 
 @client.event
@@ -38,7 +49,8 @@ async def on_message(message):
             await message.channel.send("Include a slug ticker!\n\nTo ask for help, call '/f help'")
         else:
             if(_list[1] == 'help'):
-                await message.channel.send(slugs.keys())
+                reply = format("Acceptable command slugs: \n\n{slugs}".format(slugs = list(slugs.keys())))
+                await message.channel.send(reply)
             elif (_list[1] in slugs.keys()):
                 newUrl = url + slugs.get(_list[1]) 
                 response = requests.request("GET", newUrl)
@@ -46,8 +58,9 @@ async def on_message(message):
                 collection = json['collection']
                 stats = collection['stats']
                 floor = stats['floor_price']
-                await message.channel.send(floor)
+                reply = format("{slug} Floor: {fl}".format(slug = str.upper(_list[1]), fl = floor))
+                await message.channel.send(reply)
             else:
-                await message.channel.send("I don't know that slug yet")
+                await message.channel.send(format("I don't know that slug yet, add it to my dictionary via pull request here! \n{link}".format(link = 'https://github.com/brandonfrulla/floorBot/blob/main/discord_bot.py')))
 
 client.run(File_object.read())
