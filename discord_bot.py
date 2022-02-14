@@ -5,7 +5,9 @@ client = discord.Client()
 File_object = open(".botPw", "r")
 
 url = "https://api.opensea.io/api/v1/collection/"
-slugs = { 'doodles': "doodles-official",
+slugs = { 
+            'nfh': "nfh",
+            'doodles': "doodles-official",
             'bayc': "boredapeyachtclub",
             'wabc': "wicked-ape-bone-club",
             'mayc': "mutant-ape-yacht-club",
