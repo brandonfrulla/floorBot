@@ -6,6 +6,8 @@ File_object = open(".botPw", "r")
 
 url = "https://api.opensea.io/api/v1/collection/"
 slugs = { 
+            'horde': "edenhorde-official",
+            'pixel': "pixelmongen1",
             'furu': "karafuru",
             'cdogs': "cooldogsofficial",
             'nfh': "nfh",
