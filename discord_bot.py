@@ -61,11 +61,7 @@ async def on_message(message):
                 await message.channel.send(reply)
             elif (_list[1].lower() in slugs.keys()):
                 newUrl = url + slugs.get(_list[1]) 
-                response = requests.request("GET", newUrl)
-                floor = response.json()['collection']['stats']['floor_price']
-                # collection = json['collection']
-                # stats = collection['stats']
-                # floor = stats['floor_price']
+                floor = requests.request("GET", newUrl).json()['collection']['stats']['floor_price']
                 reply = format("{slug} Floor: {fl}".format(slug = str.upper(_list[1]), fl = floor))
                 await message.channel.send(reply)
             else:
