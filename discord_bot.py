@@ -83,5 +83,7 @@ async def on_message(message):
                 _30dC = data['thirty_day_change']
                 reply = format("{slug} Floor: {fl}\n*\nOne Day Sales: {_1ds}\nOne Day Volume: {_1dv}\nOne Day Change: {_1dc}\n*\nSeven Day Sales: {_7ds}\nSeven Day Volume: {_7dv}\nSeven Day Change: {_7dc}\n*\nThirty Day Sales: {_30ds}\nThirty Day Volume: {_30dv}\nThirty Day Change: {_30dc}".format(slug = str.upper(_list[1]), fl = floor, _1ds = _1dS, _1dv = _1dV ,_1dc = _1dC, _7ds = _7dS, _7dv = _7dV, _7dc = _7dC, _30ds = _30dS, _30dv = _30dV, _30dc = _30dC))
                 await message.channel.send(reply)
+            else:
+                await message.channel.send("Verbose command = `/f <slug> v`")
 
 client.run(File_object.read())
