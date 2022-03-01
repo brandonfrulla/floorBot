@@ -6,7 +6,7 @@ File_object = open(".botPw", "r")
 
 url = "https://api.opensea.io/api/v1/collection/"
 slugs = { 
-            'w3' : "worldwidewebbland?search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=type&search[stringTraits][0][values][0]=large%20apartment",
+            'w3' : "worldwidewebbland",
             'galaxyfc' : "galaxy-fight-club",
             'hgalaxy': "hero-galaxy-heroes",
             'horde': "edenhorde-official",
