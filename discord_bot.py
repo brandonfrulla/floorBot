@@ -66,6 +66,15 @@ async def on_message(message):
                 if(_list[1] == 'help'):
                     reply = format("Acceptable command slugs: \n\n{slugs}".format(slugs = list(slugs.keys())))
                     await message.channel.send(reply)
+                #custom command for shuff
+                elif (_list[1] == "shuff"):
+                    url1 = url + slugs.get("w3")
+                    url2 = url + slugs.get() #whatever the other one is
+                    floor1 = requests.request("GET", url1).json()['collection']['stats']['floor_price']
+                    reply1 = format("{slug} Floor: {fl}".format(slug = str.upper(_list[1]), fl = floor1))
+                    floor2 = requests.request("GET", url2).json()['collection']['stats']['floor_price']
+                    reply2 = format("{slug} Floor: {fl}".format(slug = str.upper(_list[1]), fl = floor2))
+                    await message.channel.send(reply1, reply2)
                 elif (_list[1] in slugs.keys()):
                     newUrl = url + slugs.get(_list[1]) 
                     floor = requests.request("GET", newUrl).json()['collection']['stats']['floor_price']
@@ -73,6 +82,7 @@ async def on_message(message):
                     await message.channel.send(reply)
                 else:
                     await message.channel.send(format("I don't know that slug yet, add it to my dictionary via pull request here! \n{link}".format(link = 'https://github.com/brandonfrulla/floorBot/blob/main/discord_bot.py')))
+            # verbose command
             elif ((len(_list) == 3) and (str.lower(_list[2]) == "v")):
                 newUrl = url + slugs.get(_list[1]) 
                 data = requests.request("GET", newUrl).json()['collection']['stats']
