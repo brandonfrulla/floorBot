@@ -69,7 +69,7 @@ async def on_message(message):
                 #custom command for shuff
                 elif (_list[1] == "shuff"):
                     url1 = url + slugs.get("w3")
-                    url2 = url + slugs.get() #whatever the other one is
+                    url2 = url + slugs.get("hgalaxy") #whatever the other one is
                     floor1 = requests.request("GET", url1).json()['collection']['stats']['floor_price']
                     reply1 = format("{slug} Floor: {fl}".format(slug = str.upper(_list[1]), fl = floor1))
                     floor2 = requests.request("GET", url2).json()['collection']['stats']['floor_price']
